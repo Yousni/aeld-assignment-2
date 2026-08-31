@@ -12,8 +12,8 @@ if [ -z "$filesdir" ] || [ -z "$searchstr" ]; then
     exit 1
 fi
 
-if [ ! -f "$filesdir" ]; then
-    echo "File does not exist"
+if [ ! -d "$filesdir" ]; then
+    echo "Directory does not exist"
     exit 1
 fi
 
@@ -22,5 +22,5 @@ fi
 count_of_files=$(find "$filesdir" -type f | wc -l)
 count_of_matching_lines=$(grep -r "$searchstr" "$filesdir" | wc -l)
 
-echo "The number of files are $count_of_files and the number of matching lines are $count_of_matching_lines."
+echo "The number of files are $count_of_files and the number of matching lines are $count_of_matching_lines"
 
